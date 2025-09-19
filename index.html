@@ -1,68 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Love confession</title>
   
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Love confession" />
-    <meta property="og:url" content="https://loveprop.vercel.app/" />
-    <meta
-      property="og:image"
-      content="https://loveprop.vercel.app/images/feature_graphic.png"
-    />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="Love confession" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Love confession" />
-    <meta
-      name="twitter:image"
-      content="https://loveprop.vercel.app/images/feature_graphic.png"
-    />
-
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Love confession" />
+  <meta property="og:url" content="https://loveprop.vercel.app/" />
+  <meta property="og:image" content="https://loveprop.vercel.app/images/feature_graphic.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Love confession" />
   
-    <link rel="icon" href="assets/icons/favicon.ico" sizes="any" />
-    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
-    <link rel="stylesheet" href="css/style.css" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Love confession" />
+  <meta name="twitter:image" content="https://loveprop.vercel.app/images/feature_graphic.png" />
+  
+  
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
   <h1>¿Quieres ser mi novia/o?</h1>
   <div class="btn-container">
     <button id="btn1" class="si">Sí</button>
     <button id="btn2" class="no">No</button>
   </div>
-
+  
   <script>
     const btn1 = document.getElementById("btn1");
     const btn2 = document.getElementById("btn2");
-
-    function setButtons(siBtn, noBtn) {
-      siBtn.textContent = "Sí";
-      siBtn.className = "si";
-      noBtn.textContent = "No";
-      noBtn.className = "no";
+    
+    function swapAndAlert(clickedBtn, otherBtn) {
+      // Hacer que el botón pulsado sea Sí
+      clickedBtn.textContent = "Sí";
+      clickedBtn.className = "si";
+      
+      // Hacer que el otro botón sea No
+      otherBtn.textContent = "No";
+      otherBtn.className = "no";
+      
+      // Mostrar el diálogo después de un pequeño retardo
+      setTimeout(() => {
+        alert("¡Sabía que dirías que sí! 😏❤️");
+      }, 50);
     }
-
-    btn1.addEventListener("click", () => {
-      if (btn1.textContent === "No") {
-        setButtons(btn1, btn2);
-        setTimeout(() => {
-          alert("¡Sabía que dirías que sí! ❤️");
-        }, 100);
-      }
-    });
-
-    btn2.addEventListener("click", () => {
-      if (btn2.textContent === "No") {
-        setButtons(btn2, btn1);
-        setTimeout(() => {
-          alert("¡Sabía que dirías que sí! ❤️");
-        }, 100);
-      }
-    });
+    
+    btn1.addEventListener("click", () => swapAndAlert(btn1, btn2));
+    btn2.addEventListener("click", () => swapAndAlert(btn2, btn1));
   </script>
 </body>
+
 </html>
